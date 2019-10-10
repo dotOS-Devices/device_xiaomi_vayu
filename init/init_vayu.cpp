@@ -29,6 +29,7 @@
 
 #include <fstream>
 #include <unistd.h>
+#include <vector>
 
 #include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
@@ -40,37 +41,54 @@
 using android::base::GetProperty;
 using android::init::property_set;
 
+std::vector<std::string> ro_props_default_source_order = {
+    "",
+    "bootimage.",
+    "odm.",
+    "product.",
+    "system.",
+    "system_ext.",
+    "vendor.",
+};
 
-void property_override(char const prop[], char const value[])
+void property_override(char const prop[], char const value[], bool add = true)
 {
     prop_info *pi;
-    pi = (prop_info*) __system_property_find(prop);
+
+    pi = (prop_info *) __system_property_find(prop);
     if (pi)
         __system_property_update(pi, value, strlen(value));
-    else
+    else if (add)
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
-void property_override_dual(char const system_prop[],
-    char const vendor_prop[], char const value[])
-{
-    property_override(system_prop, value);
-    property_override(vendor_prop, value);
-}
+
+void set_ro_build_prop(const std::string &prop, const std::string &value) {
+    for (const auto &source : ro_props_default_source_order) {
+        auto prop_name = "ro." + source + "build." + prop;
+        property_override(prop_name.c_str(), value.c_str(), false);
+    }
+};
+
+void set_ro_product_prop(const std::string &prop, const std::string &value) {
+    for (const auto &source : ro_props_default_source_order) {
+        auto prop_name = "ro.product." + source + prop;
+        property_override(prop_name.c_str(), value.c_str(), false);
+    }
+};
 
 void vendor_load_properties() {
     std::string region;
-    std::string sku;
     region = GetProperty("ro.boot.hwc", "GLOBAL");
 
     if (region == "GLOBAL") {
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "M2102J20SG");
-        property_override_dual("ro.product.device", "ro.product.vendor.device", "vayu");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "POCO/vayu_global/vayu:11/RKQ1.200826.002/V12.0.4.0.RJUMIXM:user/release-keys");
+        set_ro_product_prop("model", "M2102J20SG");
+        set_ro_product_prop("device", "vayu");
+        set_ro_build_prop("fingerprint", "POCO/vayu_global/vayu:11/RKQ1.200826.002/V12.0.4.0.RJUMIXM:user/release-keys");
         property_override("ro.product.mod_device", "vayu_global");
     } else if (region == "INDIA") {
-        property_override_dual("ro.product.model", "ro.vendor.product.model", "M2102J20SI");
-        property_override_dual("ro.product.device", "ro.product.vendor.device",  "bhima");
-        property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "POCO/bhima_global/bhima:11/RKQ1.200826.002/V12.0.4.0.RJUMIXM:user/release-keys");
+        set_ro_product_prop("model", "M2102J20SI");
+        set_ro_product_prop("device", "bhima");
+        set_ro_build_prop("fingerprint", "POCO/bhima_global/bhima:11/RKQ1.200826.002/V12.0.4.0.RJUMIXM:user/release-keys");
         property_override("ro.product.mod_device", "bhima_global");
     }
 }
