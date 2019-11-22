@@ -15,6 +15,6 @@ type sysfs_graphics, sysfs_type, fs_type;
 type sysfs_kgsl, sysfs_type, fs_type;
 type vendor_sysfs_battery_supply, sysfs_type, fs_type;
 
-# PocoParts
+#Parts
+type sysfs_fps, sysfs_type, fs_type;
 type kcal_dev, sysfs_type, fs_type;
-type sysfs_fpsinfo, sysfs_type, fs_type;
