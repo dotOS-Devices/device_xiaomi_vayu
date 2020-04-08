@@ -121,6 +121,10 @@ PRODUCT_PACKAGES += \
     android.hardware.power-service.vayu \
     android.hardware.power.stats@1.0-service
 
+# PocoParts
+PRODUCT_PACKAGES += \
+    PocoParts
+
 # Releasetool scripts
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/bin/device_nfc_check.sh:install/bin/device_nfc_check.sh
