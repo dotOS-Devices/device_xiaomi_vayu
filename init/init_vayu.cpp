@@ -83,15 +83,27 @@ void vendor_load_properties() {
     std::string region;
     region = GetProperty("ro.boot.hwc", "GLOBAL");
 
+    std::string model;
+    std::string device;
+    std::string fingerprint;
+    std::string mod_device;
+
     if (region == "GLOBAL") {
-        set_ro_product_prop("model", "M2102J20SG");
-        set_ro_product_prop("device", "vayu");
-        set_ro_build_prop("fingerprint", "POCO/vayu_global/vayu:11/RKQ1.200826.002/V12.0.4.0.RJUMIXM:user/release-keys");
-        property_override("ro.product.mod_device", "vayu_global");
+        model = "M2102J20SG";
+        device = "vayu";
+        fingerprint = "POCO/vayu_global/vayu:11/RKQ1.200826.002/V12.0.6.0.RJUMIXM:user/release-keys";
+        mod_device = "vayu_global";
     } else if (region == "INDIA") {
-        set_ro_product_prop("model", "M2102J20SI");
-        set_ro_product_prop("device", "bhima");
-        set_ro_build_prop("fingerprint", "POCO/bhima_global/bhima:11/RKQ1.200826.002/V12.0.4.0.RJUMIXM:user/release-keys");
-        property_override("ro.product.mod_device", "bhima_global");
+        model = "M2102J20SI";
+        device = "bhima";
+        fingerprint = "POCO/bhima_global/bhima:11/RKQ1.200826.002/V12.0.4.0.RJUMIXM:user/release-keys";
+        mod_device = "bhima_global";
+        }
+
+    set_ro_build_prop("fingerprint", fingerprint);
+    set_ro_product_prop("device", device);
+    set_ro_product_prop("model", model);
+    if (mod_device != "") {
+        property_override("ro.product.mod_device", mod_device.c_str());
     }
 }
