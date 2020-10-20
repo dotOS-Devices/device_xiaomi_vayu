@@ -25,6 +25,7 @@ import android.util.Log;
 import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
+import vendor.xiaomi.hardware.touchfeature.V1_0.ITouchFeature;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
 

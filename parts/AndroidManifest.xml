@@ -74,7 +74,7 @@
                        android:value="com.android.settings.category.ia.sound" />
         </activity>
 
-        <activity
+         <activity
             android:name=".thermal.ThermalActivity"
             android:label="@string/thermal_title"
             android:theme="@style/Theme.Main">
