@@ -11,6 +11,9 @@ BUILD_BROKEN_DUP_RULES := true
 # Skip Boot Jar check
 SKIP_BOOT_JARS_CHECK := true
 
+# APEX
+OVERRIDE_TARGET_FLATTEN_APEX := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
