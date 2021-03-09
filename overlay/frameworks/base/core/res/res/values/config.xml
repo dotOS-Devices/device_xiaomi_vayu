@@ -631,6 +631,13 @@
         <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
 
+    <!-- Whether the always on display mode is available. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Control whether the always on display mode is enabled by default. This value will be used
+         during initialization when the setting is still null. -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+
     <!-- Color mode to use when accessibility transforms are enabled. This color mode must be
      supported by the device, but not necessarily appear in config_availableColorModes. The
      regularly selected color mode will be used if this value is negative. -->
