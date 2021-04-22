@@ -32,3 +32,6 @@ BUILD_FINGERPRINT := Xiaomi/vayu_global/vayu:11/RKQ1.200826.002/V12.5.2.0.RJUMIX
 
 # Inherit DotOS Official stuff.
 TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# Offline Charging
+TARGET_INCLUDE_PIXEL_CHARGER := true
