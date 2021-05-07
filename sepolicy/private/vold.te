@@ -1,1 +1,6 @@
 allowxperm vold loop_device:blk_file ioctl LOOP_GET_STATUS64;
+
+# Allow loading keymaster firmware
+allow vold firmware_file:dir rw_dir_perms;
+allow vold firmware_file:file r_file_perms;
+allow vold firmware_file:lnk_file read;
