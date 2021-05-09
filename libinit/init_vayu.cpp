@@ -117,6 +117,8 @@ void set_device_props(const std::string fingerprint, const std::string descripti
     property_override("ro.com.google.clientidbase.ms", "android-xiaomi-rvo3");
     property_override("ro.com.google.clientidbase.tx", "android-xiaomi-rvo3");
     property_override("ro.com.google.clientidbase.vs", "android-xiaomi-rvo3");
+    property_override("ro.config.media_vol_steps", "7");
+    property_override("ro.config.vc_call_vol_steps", "5");
 
 }
 
