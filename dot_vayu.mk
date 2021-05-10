@@ -11,10 +11,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit device configurations
 $(call inherit-product, device/xiaomi/vayu/device.mk)
 
-# Inherit common ArrowOS configurations
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit common dotOS configurations
+$(call inherit-product, vendor/dot/config/common.mk)
 
-PRODUCT_NAME := arrow_vayu
+PRODUCT_NAME := dot_vayu
 PRODUCT_DEVICE := vayu
 PRODUCT_BRAND := POCO
 PRODUCT_MODEL := Poco X3 Pro
@@ -25,6 +25,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-DEVICE_MAINTAINER := kubersharma001
-TARGET_INCLUDE_PIXEL_CHARGER := true
-
+# Inherit DotOS Official stuff.
+DOT_OFFICIAL := true
+TARGET_GAPPS_ARCH := arm64
+WITH_GAPPS := true
