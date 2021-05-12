@@ -14,6 +14,9 @@ $(call inherit-product, device/xiaomi/vayu/device.mk)
 # Inherit common dotOS configurations
 $(call inherit-product, vendor/dot/config/common.mk)
 
+# Bootanimation
+TARGET_BOOT_ANIMATION_RES := 1080
+
 PRODUCT_NAME := dot_vayu
 PRODUCT_DEVICE := vayu
 PRODUCT_BRAND := POCO
