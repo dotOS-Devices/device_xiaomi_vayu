@@ -19,6 +19,12 @@
         android:supportsRtl="true"
         android:theme="@style/CustomOptionsTheme">
 
+        <receiver android:name=".EarlyStartReceiver" android:directBootAware="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <receiver
             android:name=".BootReceiver"
             android:defaultToDeviceProtectedStorage="true"
@@ -33,6 +39,27 @@
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
         </receiver>
+
+        <receiver android:name=".PowerSaveModeChangeReceiver">
+            <intent-filter>
+                <action android:name="android.os.action.POWER_SAVE_MODE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".DevicePreferenceActivity"
+            android:label="@string/device_specific_settings_title"
+            android:theme="@style/CustomOptionsTheme">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/device_specific_settings_summary" />
+        </activity>
 
         <activity
             android:name=".DeviceSettingsActivity"
@@ -97,6 +124,16 @@
             android:enabled="true"
             android:icon="@drawable/qs_xiaomi"
             android:label="@string/xiaomiparts_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".RefreshRateTileService"
+            android:icon="@drawable/ic_qs_refresh_rate"
+            android:label="@string/refresh_rate_tile_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>

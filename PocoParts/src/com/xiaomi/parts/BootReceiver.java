@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 import android.provider.Settings;
@@ -11,11 +12,14 @@ import android.content.SharedPreferences;
 import android.os.SELinux;
 import android.util.Log;
 import android.widget.Toast;
+import android.os.PowerManager;
 
 import com.xiaomi.parts.R;
 
+import com.xiaomi.parts.PowerSaveModeChangeReceiver;
 import com.xiaomi.parts.kcal.Utils;
 import com.xiaomi.parts.ambient.SensorsDozeService;
+import com.xiaomi.parts.util.RefreshRateUtils;
 
 import java.io.IOException;
 import java.util.List;
@@ -116,6 +120,13 @@ mContext = context;
 
         FileUtils.setValue(DeviceSettings.USB_FASTCHARGE_PATH, Settings.Secure.getInt(context.getContentResolver(),
                 DeviceSettings.PREF_USB_FASTCHARGE, 0));
+
+        // Refresh rate
+        RefreshRateUtils.setFPS(RefreshRateUtils.getRefreshRate(context));
+        IntentFilter filter = new IntentFilter();
+        PowerSaveModeChangeReceiver receiver = new PowerSaveModeChangeReceiver();
+        filter.addAction(PowerManager.ACTION_POWER_SAVE_MODE_CHANGED);
+        context.getApplicationContext().registerReceiver(receiver, filter);
 				
 	//Ambient
         context.startService(new Intent(context, SensorsDozeService.class));
