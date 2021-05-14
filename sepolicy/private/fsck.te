@@ -1,0 +1,2 @@
+#============= fsck ==============
+allow fsck self:capability kill;

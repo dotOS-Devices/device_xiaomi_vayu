@@ -1,0 +1,2 @@
+#============= gpuservice ==============
+allow gpuservice graphics_config_prop:file read;
