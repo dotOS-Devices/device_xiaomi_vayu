@@ -104,6 +104,7 @@ void vendor_load_properties() {
     std::string device;
     std::string fingerprint;
     std::string mod_device;
+    std::string description;
 
     if (region == "GLOBAL") {
         model = "M2102J20SG";
@@ -116,6 +117,10 @@ void vendor_load_properties() {
         fingerprint = "POCO/bhima_global/bhima:11/RKQ1.200826.002/V12.0.4.0.RJUMIXM:user/release-keys";
         mod_device = "bhima_global";
         }
+
+    // fingerprint
+    fingerprint = "google/coral/coral:11/RQ2A.210505.002/7246365:user/release-keys";
+    description = "coral-user 11 RQ2A.210505.002 7246365 release-keys";
 
     set_ro_build_prop("fingerprint", fingerprint);
     set_ro_product_prop("device", device);
