@@ -29,6 +29,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 # Inherit DotOS Official stuff.
-DOT_OFFICIAL := true
-TARGET_GAPPS_ARCH := arm64
-WITH_GAPPS := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
