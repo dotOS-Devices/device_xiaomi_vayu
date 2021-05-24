@@ -8,6 +8,8 @@ DEVICE_PATH := device/xiaomi/vayu
 BOARD_VENDOR := xiaomi
 
 BUILD_BROKEN_DUP_RULES := true
+# Skip Boot Jar check
+SKIP_BOOT_JARS_CHECK := true
 
 # Architecture
 TARGET_ARCH := arm64
