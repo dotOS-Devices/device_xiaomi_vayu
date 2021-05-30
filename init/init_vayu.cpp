@@ -127,7 +127,7 @@ void vendor_load_properties() {
     set_ro_product_prop("model", model);
     if (mod_device != "") {
         property_override("ro.product.mod_device", mod_device.c_str());
-        property_override("ro.config.media_vol_steps", "7");
+        property_override("ro.config.media_vol_steps", "15");
         property_override("ro.config.vc_call_vol_steps", "6");
         property_override("ro.apex.updatable", "false");
     }
