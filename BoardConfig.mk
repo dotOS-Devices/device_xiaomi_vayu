@@ -23,6 +23,7 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_vayu
 
 # Kernel
 TARGET_KERNEL_CONFIG := vayu_user_defconfig
+TARGET_KERNEL_CLANG_VERSION := proton
 
 # Inherit from the proprietary version
 include vendor/xiaomi/vayu/BoardConfigVendor.mk
