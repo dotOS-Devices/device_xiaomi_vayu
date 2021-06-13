@@ -119,8 +119,8 @@ void vendor_load_properties() {
         }
 
     // fingerprint
-    fingerprint = "google/coral/coral:11/RQ2A.210505.002/7246365:user/release-keys";
-    description = "coral-user 11 RQ2A.210505.002 7246365 release-keys";
+    fingerprint = "google/coral/coral:11/RQ3A.210605.005/7349499:user/release-keys";
+    description = "coral-user 11 RQ3A.210605.005 7349499 release-keys";
 
     set_ro_build_prop("fingerprint", fingerprint);
     set_ro_product_prop("device", device);
