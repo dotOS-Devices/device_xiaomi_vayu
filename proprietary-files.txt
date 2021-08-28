@@ -1,4 +1,4 @@
-# Unpinned blobs from vayu_global-user 11 RKQ1.200826.002 V12.5.3.0.RJUMIXM release-keys
+# Unpinned blobs from vayu_global-user 11 RKQ1.200826.002 V12.5.4.0.RJUMIXM release-keys
 
 # ACDB
 vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
@@ -242,8 +242,8 @@ vendor/etc/camera/seg_quantized.dlc
 vendor/etc/camera/vidhance_calibration
 vendor/etc/camera/visidon_clearshot_params_algoup.xml
 
-# Camera configs - from vayu-user 11 RKQ1.200826.002 V12.0.6.0.RJUMIXM release-keys 
-vendor/etc/camera/sr_params.xml|f83901324b80bc1e1af2751e1bb4d95b01977f6e
+# Camera configs - from vayu-user 11 RKQ1.200826.002 V12.5.4.0.RJUMIXM release-keys 
+vendor/etc/camera/sr_params.xml|fb9796cde5473fb413d0a4dffe52be4d2ff6804d
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
