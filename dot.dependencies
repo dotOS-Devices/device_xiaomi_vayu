@@ -15,7 +15,7 @@
     "branch": "dot11"
   },
   {
-    "repository": "Vendor_xiaomi_vayu-common",
+    "repository": "vendor_xiaomi_vayu-common",
     "target_path": "vendor/xiaomi/sm8150-common",
     "branch": "dot11"
   }
