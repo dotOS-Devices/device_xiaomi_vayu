@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "kernel_xiaomi_vayu",
+    "target_path": "kernel/xiaomi/vayu"
+  },
+  {
+    "repository": "vendor_xiaomi_vayu",
+    "target_path": "vendor/xiaomi/vayu"
+  }
+]
